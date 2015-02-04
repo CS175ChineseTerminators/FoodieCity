@@ -1,0 +1,9 @@
+Make an array of Lat/Long List of restaurants ("Food" tag) from yelp.
+
+Search each location of the restaurant from instagram using the given latitude and longitude.
+
+Group the locations into their respective cities according to their latitude and longitude.
+
+Count the numbers of images posted in that particular location in the past 7 days.
+
+
