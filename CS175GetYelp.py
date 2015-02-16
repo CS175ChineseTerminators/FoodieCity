@@ -41,5 +41,11 @@ def get_results(params):
 if __name__ == "__main__":
     param = get_search_parameters("Irvine, CA")
     results = get_results(param)
+    # results keys = {businesses, total, region}
     Yelp_Restaurants = results["businesses"]
+    # Yelp_Restaurants keys = {rating, rating_img_url, is_claimed,
+    # review_count, url, rating_img_url_large, display_phone,
+    # image_url, location, is_closed, categories, phone, name, url}
+    # Keys are all in string
+    
 #    print(get_results(param))
