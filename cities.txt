@@ -1,0 +1,202 @@
+1 New York New York  40.6643°N 73.9385°W
+2 Los Angeles California  34.0194°N 118.4108°W
+3 Chicago Illinois  41.8376°N 87.6818°W
+4 Houston Texas  29.7805°N 95.3863°W
+5 Philadelphia Pennsylvania  40.0094°N 75.1333°W
+6 Phoenix Arizona  33.5722°N 112.0880°W
+7 San Antonio Texas  29.4724°N 98.5251°W
+8 San Diego California  32.8153°N 117.1350°W
+9 Dallas Texas  32.7757°N 96.7967°W
+10 San Jose California  37.2969°N 121.8193°W
+11 Austin Texas  30.3072°N 97.7560°W
+12 Indianapolis Indiana  39.7767°N 86.1459°W
+13 Jacksonville Florida  30.3370°N 81.6613°W
+14 San Francisco California  37.7751°N 122.4193°W
+15 Columbus Ohio  39.9848°N 82.9850°W
+16 Charlotte North Carolina  35.2087°N 80.8307°W
+17 Fort Worth Texas  32.7795°N 97.3463°W
+18 Detroit Michigan  42.3830°N 83.1022°W
+19 El Paso Texas  31.8484°N 106.4270°W
+20 Memphis Tennessee  35.1035°N 89.9785°W
+21 Seattle Washington  47.6205°N 122.3509°W
+22 Denver Colorado  39.7618°N 104.8806°W
+23 Washington District of Columbia  38.9041°N 77.0171°W
+24 Boston Massachusetts  42.3320°N 71.0202°W
+25 Nashville Tennessee  36.1718°N 86.7850°W
+26 Baltimore Maryland  39.3002°N 76.6105°W
+27 Oklahoma City Oklahoma  35.4671°N 97.5137°W
+28 Louisville Kentucky  38.1781°N 85.6667°W
+29 Portland Oregon  45.5370°N 122.6500°W
+30 Las Vegas Nevada  36.2277°N 115.2640°W
+31 Milwaukee Wisconsin  43.0633°N 87.9667°W
+32 Albuquerque New Mexico  35.1056°N 106.6474°W
+33 Tucson Arizona  32.1543°N 110.8711°W
+34 Fresno California  36.7827°N 119.7945°W
+35 Sacramento California  38.5666°N 121.4686°W
+36 Long Beach California  33.8091°N 118.1553°W
+37 Kansas City Missouri  39.1252°N 94.5511°W
+38 Mesa Arizona  33.4019°N 111.7174°W
+39 Virginia Beach Virginia  36.7793°N 76.0240°W
+40 Atlanta Georgia  33.7629°N 84.4227°W
+41 Colorado Springs Colorado  38.8673°N 104.7607°W
+42 Omaha Nebraska  41.2647°N 96.0419°W
+43 Raleigh North Carolina  35.8302°N 78.6414°W
+44 Miami Florida  25.7752°N 80.2086°W
+45 Oakland California  37.7699°N 122.2256°W
+46 Minneapolis Minnesota  44.9633°N 93.2683°W
+47 Tulsa Oklahoma  36.1279°N 95.9023°W
+48 Cleveland Ohio  41.4781°N 81.6795°W
+49 Wichita Kansas  37.6907°N 97.3427°W
+50 Arlington Texas  32.7007°N 97.1247°W
+51 New Orleans Louisiana  30.0686°N 89.9390°W
+52 Bakersfield California  35.3212°N 119.0183°W
+53 Tampa Florida  27.9701°N 82.4797°W
+54 Honolulu Hawai'i  21.3259°N 157.8453°W
+55 Aurora Colorado  39.7082°N 104.8235°W
+56 Anaheim California  33.8555°N 117.7601°W
+57 Santa Ana California  33.7365°N 117.8826°W
+58 St. Louis Missouri  38.6357°N 90.2446°W
+59 Riverside California  33.9381°N 117.3932°W
+60 Corpus Christi Texas  27.7543°N 97.1734°W
+61 Lexington Kentucky  38.0402°N 84.4584°W
+62 Pittsburgh Pennsylvania  40.4398°N 79.9766°W
+63 Anchorage Alaska  61.2176°N 149.8953°W
+64 Stockton California  37.9763°N 121.3133°W
+65 Cincinnati Ohio  39.1399°N 84.5064°W
+66 Saint Paul Minnesota  44.9489°N 93.1039°W
+67 Toledo Ohio  41.6641°N 83.5819°W
+68 Greensboro North Carolina  36.0965°N 79.8271°W
+69 Newark New Jersey  40.7242°N 74.1726°W
+70 Plano Texas  33.0508°N 96.7479°W
+71 Henderson Nevada  36.0122°N 115.0375°W
+72 Lincoln Nebraska  40.8090°N 96.6804°W
+73 Buffalo New York  42.8925°N 78.8597°W
+74 Jersey City New Jersey  40.7114°N 74.0648°W
+75 Chula Vista California  32.6277°N 117.0152°W
+76 Fort Wayne Indiana  41.0882°N 85.1439°W
+77 Orlando Florida  28.4159°N 81.2988°W
+78 St. Petersburg Florida  27.7620°N 82.6441°W
+79 Chandler Arizona  33.2829°N 111.8549°W
+80 Laredo Texas  27.5477°N 99.4869°W
+81 Norfolk Virginia  36.9230°N 76.2446°W
+82 Durham North Carolina  35.9810°N 78.9056°W
+83 Madison Wisconsin  43.0878°N 89.4301°W
+84 Lubbock Texas  33.5665°N 101.8867°W
+85 Irvine California  33.6784°N 117.7713°W
+86 WinstonSalem North Carolina  36.1033°N 80.2606°W
+87 Glendale Arizona  33.5331°N 112.1899°W
+88 Garland Texas  32.9098°N 96.6304°W
+89 Hialeah Florida  25.8699°N 80.3029°W
+90 Reno Nevada  39.4745°N 119.7765°W
+91 Chesapeake Virginia  36.6794°N 76.3018°W
+92 Gilbert Arizona  33.3102°N 111.7422°W
+93 Baton Rouge Louisiana  30.4485°N 91.1259°W
+94 Irving Texas  32.8577°N 96.9700°W
+95 Scottsdale Arizona  33.6687°N 111.8237°W
+96 North Las Vegas Nevada  36.2830°N 115.0893°W
+97 Fremont California  37.4944°N 121.9411°W
+98 Boise Idaho  43.5985°N 116.2311°W
+99 Richmond Virginia  37.5314°N 77.4760°W
+100 San Bernardino California  34.1393°N 117.2953°W
+101 Birmingham Alabama  33.5274°N 86.7990°W
+102 Spokane Washington  47.6736°N 117.4166°W
+103 Rochester New York  43.1699°N 77.6169°W
+104 Des Moines Iowa  41.5739°N 93.6167°W
+105 Modesto California  37.6609°N 120.9891°W
+106 Fayetteville North Carolina  35.0851°N 78.9803°W
+107 Tacoma Washington  47.2522°N 122.4598°W
+108 Oxnard California  34.2023°N 119.2046°W
+109 Fontana California  34.1088°N 117.4627°W
+110 Columbus Georgia  32.5102°N 84.8749°W
+111 Montgomery Alabama  32.3463°N 86.2686°W
+112 Moreno Valley California  33.9233°N 117.2057°W
+113 Shreveport Louisiana  32.4670°N 93.7927°W
+114 Aurora Illinois  41.7635°N 88.2901°W
+115 Yonkers New York  40.9459°N 73.8674°W
+116 Akron Ohio  41.0805°N 81.5214°W
+117 Huntington Beach California  33.6906°N 118.0093°W
+118 Little Rock Arkansas  34.7254°N 92.3586°W
+119 Augusta Georgia  33.3655°N 82.0734°W
+120 Amarillo Texas  35.1978°N 101.8287°W
+121 Glendale California  34.1814°N 118.2458°W
+122 Mobile Alabama  30.6684°N 88.1002°W
+123 Grand Rapids Michigan  42.9612°N 85.6556°W
+124 Salt Lake City Utah  40.7785°N 111.9314°W
+125 Tallahassee Florida  30.4551°N 84.2534°W
+126 Huntsville Alabama  34.7843°N 86.5390°W
+127 Grand Prairie Texas  32.6842°N 97.0210°W
+128 Knoxville Tennessee  35.9709°N 83.9465°W
+129 Worcester Massachusetts  42.2695°N 71.8078°W
+130 Newport News Virginia  37.0760°N 76.5217°W
+131 Brownsville Texas  26.0183°N 97.4538°W
+132 Overland Park Kansas  38.8890°N 94.6906°W
+133 Santa Clarita California  34.4049°N 118.5047°W
+134 Providence Rhode Island  41.8231°N 71.4188°W
+135 Garden Grove California  33.7788°N 117.9605°W
+136 Chattanooga Tennessee  35.0665°N 85.2471°W
+137 Oceanside California  33.2246°N 117.3062°W
+138 Jackson Mississippi  32.3158°N 90.2128°W
+139 Fort Lauderdale Florida  26.1413°N 80.1439°W
+140 Santa Rosa California  38.4468°N 122.7061°W
+141 Rancho Cucamonga California  34.1233°N 117.5642°W
+142 Port St. Lucie Florida  27.2810°N 80.3838°W
+143 Tempe Arizona  33.3884°N 111.9318°W
+144 Ontario California  34.0395°N 117.6088°W
+145 Vancouver Washington  45.6372°N 122.5965°W
+146 Cape Coral Florida  26.6431°N 81.9973°W
+147 Sioux Falls South Dakota  43.5383°N 96.7320°W
+148 Springfield Missouri  37.1942°N 93.2913°W
+149 Peoria Arizona  33.7877°N 112.3111°W
+150 Pembroke Pines Florida  26.0212°N 80.3404°W
+151 Elk Grove California  38.4144°N 121.3849°W
+152 Salem Oregon  44.9237°N 123.0231°W
+153 Lancaster California  34.6936°N 118.1753°W
+154 Corona California  33.8624°N 117.5639°W
+155 Eugene Oregon  44.0567°N 123.1162°W
+156 Palmdale California  34.5913°N 118.1090°W
+157 Salinas California  36.6902°N 121.6337°W
+158 Springfield Massachusetts  42.1155°N 72.5400°W
+159 Pasadena Texas  29.6583°N 95.1505°W
+160 Fort Collins Colorado  40.5482°N 105.0648°W
+161 Hayward California  37.6281°N 122.1063°W
+162 Pomona California  34.0586°N 117.7613°W
+163 Cary North Carolina  35.7821°N 78.8141°W
+164 Rockford Illinois  42.2634°N 89.0628°W
+165 Alexandria Virginia  38.8183°N 77.0820°W
+166 Escondido California  33.1336°N 117.0732°W
+167 McKinney Texas  33.2012°N 96.6680°W
+168 Kansas City Kansas  39.1225°N 94.7418°W
+169 Joliet Illinois  41.5181°N 88.1584°W
+170 Sunnyvale California  37.3858°N 122.0263°W
+171 Torrance California  33.8350°N 118.3414°W
+172 Bridgeport Connecticut  41.1874°N 73.1957°W
+173 Lakewood Colorado  39.6989°N 105.1176°W
+174 Hollywood Florida  26.0311°N 80.1646°W
+175 Paterson New Jersey  40.9147°N 74.1628°W
+176 Naperville Illinois  41.7492°N 88.1620°W
+177 Syracuse New York  43.0410°N 76.1436°W
+178 Mesquite Texas  32.7639°N 96.5924°W
+179 Dayton Ohio  39.7774°N 84.1996°W
+180 Savannah Georgia  32.0025°N 81.1536°W
+181 Clarksville Tennessee  36.5664°N 87.3452°W
+182 Orange California  33.8048°N 117.8249°W
+183 Pasadena California  34.1606°N 118.1396°W
+184 Fullerton California  33.8857°N 117.9280°W
+185 Killeen Texas  31.0777°N 97.7320°W
+186 Frisco Texas  33.1510°N 96.8193°W
+187 Hampton Virginia  37.0480°N 76.2971°W
+188 McAllen Texas  26.2185°N 98.2461°W
+189 Warren Michigan  42.4929°N 83.0250°W
+190 Bellevue Washington  47.5978°N 122.1565°W
+191 West Valley City Utah  40.6885°N 112.0118°W
+192 Columbia South Carolina  34.0298°N 80.8966°W
+193 Olathe Kansas  38.8843°N 94.8188°W
+194 Sterling Heights Michigan  42.5812°N 83.0303°W
+195 New Haven Connecticut  41.3108°N 72.9250°W
+196 Miramar Florida  25.9770°N 80.3358°W
+197 Waco Texas  31.5601°N 97.1860°W
+198 Thousand Oaks California  34.1933°N 118.8742°W
+199 Cedar Rapids Iowa  41.9670°N 91.6778°W
+200 Charleston South Carolina  32.8179°N 79.9589°W
+201 Visalia California  36.3272°N 119.3234°W
+202 Topeka Kansas  39.0362°N 95.6948°W
