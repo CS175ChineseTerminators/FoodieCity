@@ -6,7 +6,7 @@ Created on Wed Feb  4 14:13:09 2015
 @author: Tony
 """
 
-import rauth, tearYelpKeys, sys
+import rauth, tearYelpKeys, sys, ast
 
 class GetYelp(object):
 
@@ -19,7 +19,7 @@ class GetYelp(object):
     def get_search_parameters(self, area, name=''):
         """Search params, will be only for restaurants in this project"""
         params = {}
-        if (name): params["term"] = name 
+        if (name): params["term"] = name
         else: params["term"] = "restaurant"
         params["location"] = area
         return params
@@ -54,25 +54,32 @@ class GetYelp(object):
                 results.append(r)
         return results
 
-    def read_restaurantChains(self, file=""):
+    def read_infoList(self, file=""):
         """ Supply this function a file argument, containing all restaurant
             that would be interesting
         """
-        RChainList = []
-        return RChainList
-
-    def read_CityList(self, file=""):
-        """ Reads a file of cities, then returns it in a list"""
-        CityList = []
-        return CityList        
+        infoList = []
+        try:
+            if (file):
+                with open(file, 'r') as F:
+                    for line in F:
+                        infoList.append(line.strip())
+        except IOError as E:
+            print("%s\nUnopenable restaurant chain file"%(E))
+            
+        return infoList   
         
     def getRestaurantsByCity(self, restaurantList, city):
         """ Returns a dict of all chain restaurants in city specified """
         RC = dict()  # RC[restaurant name] = restaurant info
+        C = city.split(',')[0]
         for r in restaurantList:
             if (r in RC):
                 RC[r].append(self.filterRList(
-                            self.get_restaurantList(city.strip(), r.replace(' ','-'))))
+                            self.get_restaurantList(city.strip(), r.replace(' ','-')), C))
+            else:
+                RC[r] = [self.filterRList(
+                            self.get_restaurantList(city.split(',')[0].strip(), r.replace(' ','-')), C)]
                             
         return RC
         
@@ -82,6 +89,22 @@ class GetYelp(object):
         for city in cityList:
             RCityList.append(self.getRestaurantsByCity(restaurantList, city))
         return RCityList
+        
+    def extractYData(self, filename=""):
+        """Pass a text file containing Yelp Data, return in dict form"""
+        result = None
+        try:
+            with open(filename, 'r') as f:
+                text = f.read()
+            result = ast.literal_eval(text)
+            if (result):
+                return result
+            else:
+                raise ValueError("ValueError")
+        except IOError as e:
+            print("%s: Invalid filename provided"%(e))
+        except ValueError as e:
+            print("%s: Read Error, try again"%(e))
 
     
 if __name__ == "__main__":
