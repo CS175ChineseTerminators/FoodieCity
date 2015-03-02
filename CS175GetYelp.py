@@ -105,7 +105,19 @@ class GetYelp(object):
             print("%s: Invalid filename provided"%(e))
         except ValueError as e:
             print("%s: Read Error, try again"%(e))
-
+    
+    def getRatings(self, filename=""):
+        """Returns a dict[restaurant] = [ratings] """
+        if (filename):
+            data = self.extractYData(filename)
+            ratings = dict()
+            for key in data.keys():
+                ratings[key] = []
+                for i in range(len(data[key][0])):
+                    current = data[key][0][i]
+                    ratings[key].append((current['rating'], current["review_count"]))
+            return ratings
+    
     
 if __name__ == "__main__":
     if (len(sys.argv)<3):
