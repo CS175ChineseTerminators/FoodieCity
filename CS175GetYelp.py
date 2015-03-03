@@ -61,7 +61,7 @@ class GetYelp(object):
         infoList = []
         try:
             if (file):
-                with open(file, 'r') as F:
+                with open(file, 'r', encoding="latin-1") as F:
                     for line in F:
                         infoList.append(line.strip())
         except IOError as E:
@@ -94,7 +94,7 @@ class GetYelp(object):
         """Pass a text file containing Yelp Data, return in dict form"""
         result = None
         try:
-            with open(filename, 'r') as f:
+            with open(filename, 'r', encoding="latin-1") as f:
                 text = f.read()
             result = ast.literal_eval(text)
             if (result):
