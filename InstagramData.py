@@ -6,7 +6,9 @@ Created on Fri Mar  6 01:29:55 2015
 @author: Tony
 """
 
-import sys, re
+import re
+from textblob import TextBlob
+
 
 class InstaData(object):
     
@@ -53,6 +55,19 @@ class InstaData(object):
                 if (tag in self.taglist[tag[0]]):
                     return True
         return False
+        
+    def sentiment(self, text) -> (float, float):
+        """Takes text, returns (polarity, subjectivity)"""
+        if (not text):
+            raise ValueError("Empty Text")
+        data = TextBlob(text)
+        return (data.sentiment.polarity, data.sentiment.subjectivity)
+        
+    def getSentimentList(self, textlist) -> list:
+        """Takes a list of texts, returns list of sentiments"""
+        sentiments = [self.sentiment(text) for text in textlist]
+        return sentiments
+            
     
 if __name__ == "__main__":
     print("hello")
