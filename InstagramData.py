@@ -38,8 +38,9 @@ class InstaData(object):
                 textlist = set()
                 with open(filename, 'r', encoding="utf-8") as f:
                     for line in f.readlines():
-                        if (self.filterInFile(line)):
-                            textlist.add(line)
+                        if ("Comment:" in line):
+                            if (self.filterInFile(line)):
+                                textlist.add(line)
                 return list(textlist)
             except IOError as e:
                 return "%s: Could not open File"%(e)
@@ -68,6 +69,30 @@ class InstaData(object):
         sentiments = [self.sentiment(text) for text in textlist]
         return sentiments
             
+    def countTags(self, textlist) -> dict:
+        """Takes a list of texts, returns a dict of key:tags value:count"""
+        count = dict()
+        for text in textlist:
+            tags = re.findall(r'#[^#|\s]+', text)
+            for tag in tags:
+                if (tag[1].lower() in self.taglist):
+                    if (tag.strip('#') in self.taglist[tag[1].lower()]):
+                        if (tag in count):
+                            count[tag] += 1
+                        else:
+                            count[tag] = 1
+        return count
+    
+    def maxTags(self, countDict) -> (str, int):
+        """Takes a count dict, returns max"""
+        name, count = "", -1
+        for key in countDict.keys():
+            if (countDict[key] > count):
+                name, count = key, countDict[key]
+        if (not name):
+            raise ValueError("For some reason, had no max")
+        else:
+            return (name, count)
     
 if __name__ == "__main__":
     print("hello")
