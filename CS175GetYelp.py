@@ -6,7 +6,13 @@ Created on Wed Feb  4 14:13:09 2015
 @author: Tony
 """
 
-import rauth, tearYelpKeys, sys, ast
+import rauth, tearYelpKeys, sys, ast, operator
+import urllib
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+import subprocess
+import glob
+import os
 
 class GetYelp(object):
 
@@ -117,7 +123,109 @@ class GetYelp(object):
                     current = data[key][0][i]
                     ratings[key].append((current['rating'], current["review_count"]))
             return ratings
-    
+            
+    def readAllFiles(self, path=""):
+        """Returns all the files in the YData Folder
+            Change File Path 
+        """
+        #allFiles= glob.glob("/Users/Raymond/anaconda/lib/YData/*")
+        #return allFiles
+        
+        cities = []
+        if not (path):
+            path = "/Users/Raymond/anaconda/lib/YData/"
+        
+        for (root, dirs, f) in os.walk(path):
+            for filename in f:
+                if filename.endswith(".txt"):
+                    filename = os.path.join(root, filename)
+                    filename = "/".join(filename.split("/")[5:7])
+                    #city_state = os.path.splitext(filename)[0]
+                    cities.append(filename)
+                    
+        return cities
+        
+    def listOfChains(self):
+        subprocess.Popen("rm Rchainlist.txt", stdout=subprocess.PIPE, 
+                         stderr=subprocess.PIPE, shell=True).communicate()
+        
+        infile = urlopen('http://en.wikipedia.org/wiki/List_of_restaurant_chains_in_the_United_States')
+        page = infile.read()
+        soup = BeautifulSoup(page)
+        write_to_file = []
+        table = soup.find("table", {"class": "wikitable sortable"})
+        table.encode('utf-8')
+        
+        with open("Rchainlist.txt", 'w') as f:
+            for row in table.finAll("tr"):
+                cells = row.findAll("td")
+                if (len(cells)==4):
+                    city = cells[0].find(text=True)
+                    f.write(city)
+                    write_to_file.append(city)
+        
+        return write_to_file
+        
+    def topRatings(self, filename=""):
+        """Returns a dict[restaurant] = [ratings] """
+        if (filename):
+            data = self.extractYData(filename)
+            filename  = "/".join(filename.split("/")[1:2])
+            city_state = os.path.splitext(filename)[0]
+            state = city_state[-2:]
+            #print(state)
+            
+            new_ratings = dict()
+            review_counts = dict()
+            restaurants = self.listOfChains()
+            #print(restaurants)
+            printed_ratings = dict()
+            for key in data.keys():
+                new_ratings[key] = []
+                review_counts[key] = []
+                printed_ratings[key] = []
+                
+                #answer = []
+                for i in range(len(data[key][0])):
+                    current = data[key][0][i]
+                    one = current['rating']
+                    two = current['review_count']
+                    three = current['name']
+                    four = current['location']['state_code']
+                    #print(four)
+                    number = (one * two)
+                    if((key == three) and (two > 1)):
+                        review_counts[key].append((two))
+                        new_ratings[key].append((number))
+                if(len(review_counts[key]) != 0):
+                    #print(key)
+                    if((key in restaurants) and (state == four)): 
+                        number_of_restaurants = len(data[key][0])
+                        number_of_restaurants= number_of_restaurants/1000
+                        answer = sum(new_ratings[key])/sum(review_counts[key]) + number_of_restaurants
+                        printed_ratings[key].append((answer))
+                else:
+                    answer = 0
+                    printed_ratings[key].append((answer))
+               
+                    #new_ratings[key].append((current['rating'], current["review_count"]))
+                    #print("HEERERLE", new_ratings[key])
+
+            #return new_ratings
+            #return printed_ratings
+            sorted_dict = sorted(printed_ratings.items(), key=operator.itemgetter(1), reverse = True)[:50]
+            return sorted_dict
+        
+    def extractAllData(self):
+        print("Made it!")
+        allFiles = self.readAllFiles()
+        print(allFiles)
+        final = dict()
+        for key in range(len(allFiles)):
+            #print(allFiles[key])
+            city = self.topRatings(allFiles[key])
+            final[allFiles[key]] = city
+        return final
     
 if __name__ == "__main__":
     if (len(sys.argv)<3):
