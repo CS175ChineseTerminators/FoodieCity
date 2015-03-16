@@ -61,14 +61,27 @@ class InstaData(object):
         """Takes text, returns (polarity, subjectivity)"""
         if (not text):
             raise ValueError("Empty Text")
-        data = TextBlob(text)
+        textin = re.findall(r'"[^"]+"', text)[0]
+        data = TextBlob(textin)
         return (data.sentiment.polarity, data.sentiment.subjectivity)
         
     def getSentimentList(self, textlist) -> list:
         """Takes a list of texts, returns list of sentiments"""
         sentiments = [self.sentiment(text) for text in textlist]
         return sentiments
-            
+        
+    def getCityNSents(self, citytextlist) -> dict:
+        """Takes a list of cities, returns dict[city]=[sentiments]"""
+        results = dict()
+        if isinstance(citytextlist, list):
+            for textname in citytextlist:
+                cityComments = self.readInstaFile(textname)
+                results[textname.strip(".txt")] = (cityComments, self.getSentimentList(cityComments))
+        elif isinstance(citytextlist, str):
+            cityComments = self.readInstaFile(citytextlist)
+            results[citytextlist.strip(".txt")] = (cityComments, self.getSentimentList(cityComments))
+        return results            
+        
     def countTags(self, textlist) -> dict:
         """Takes a list of texts, returns a dict of key:tags value:count"""
         count = dict()
