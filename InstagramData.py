@@ -61,8 +61,11 @@ class InstaData(object):
         """Takes text, returns (polarity, subjectivity)"""
         if (not text):
             raise ValueError("Empty Text")
-        textin = re.findall(r'"[^"]+"', text)[0]
-        data = TextBlob(textin)
+        textin = re.findall(r'"[^"]+"', text)
+        if (not textin):
+            data = TextBlob(text)
+        else:
+            data = TextBlob(textin[0])
         return (data.sentiment.polarity, data.sentiment.subjectivity)
         
     def getSentimentList(self, textlist) -> list:

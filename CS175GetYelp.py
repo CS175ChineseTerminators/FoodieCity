@@ -135,16 +135,14 @@ class GetYelp(object):
     def getHighestCount(self, citydatafile=""):
         """Returns a dict[restaurant]=[total ratings_count]"""
         if (citydatafile):
-            print(citydatafile)
             data = self.extractYData(citydatafile)
-            print("done")
             toplist = []
             for key in data.keys():
                 totalreview, ratings = 0, []
                 if (len(data[key][0])):
                     for i in range(len(data[key][0])):
                         current = data[key][0][i]
-                        if (current['name']==key and current['location']['city']!=citydatafile[:-5]):
+                        if (current['name']==key):
                             totalreview += current["review_count"]
                             ratings.append(current['rating'])
                     if (totalreview):
