@@ -21,6 +21,7 @@ class GetYelp(object):
         self._CSecret = tearYelpKeys.CSecret
         self._Token = tearYelpKeys.Token
         self._TSecret = tearYelpKeys.TSecret
+        
 
     def get_search_parameters(self, area, name=''):
         """Search params, will be only for restaurants in this project"""
@@ -111,6 +112,12 @@ class GetYelp(object):
             print("%s: Invalid filename provided"%(e))
         except ValueError as e:
             print("%s: Read Error, try again"%(e))
+        except SyntaxError as e:
+            with open(filename, 'r', encoding="utf-8") as f:
+                text = f.read()
+                result = ast.literal_eval(text)
+            if (result):
+                return result
     
     def getRatings(self, filename=""):
         """Returns a dict[restaurant] = [ratings] """
@@ -121,9 +128,49 @@ class GetYelp(object):
                 ratings[key] = []
                 for i in range(len(data[key][0])):
                     current = data[key][0][i]
-                    ratings[key].append((current['rating'], current["review_count"]))
+                    if (current['name']==key):
+                        ratings[key].append((current['rating'], current["review_count"]))
             return ratings
             
+    def getHighestCount(self, citydatafile=""):
+        """Returns a dict[restaurant]=[total ratings_count]"""
+        if (citydatafile):
+            print(citydatafile)
+            data = self.extractYData(citydatafile)
+            print("done")
+            toplist = []
+            for key in data.keys():
+                totalreview, ratings = 0, []
+                if (len(data[key][0])):
+                    for i in range(len(data[key][0])):
+                        current = data[key][0][i]
+                        if (current['name']==key and current['location']['city']!=citydatafile[:-5]):
+                            totalreview += current["review_count"]
+                            ratings.append(current['rating'])
+                    if (totalreview):
+                        avg = sum(ratings)/len(ratings)
+                        toplist.append((key, totalreview, avg))
+            toplist.sort(reverse=True, key=lambda x:x[1])
+            return toplist[0:5]
+        return None
+        
+    def getAllTop(self, filedir="", filelist=""):
+        """Checks file data dir, gets all top restaurtant"""
+        if (filedir and filelist):
+            sys.path.append(filedir)
+            with open(filelist, 'r', encoding="latin-1") as f:
+                files = f.read().split("\n")
+            results = dict()
+            for file in files:
+                if (file):
+                    results[file.strip(".txt")] = self.getHighestCount(filedir+file)
+            return results
+        else:
+            return "Need both a valid filedir and filelist"
+                
+#####         
+# Functions below, Author: Raymond Lee
+###
     def readAllFiles(self, path=""):
         """Returns all the files in the YData Folder
             Change File Path 
@@ -173,32 +220,27 @@ class GetYelp(object):
             filename  = "/".join(filename.split("/")[1:2])
             city_state = os.path.splitext(filename)[0]
             state = city_state[-2:]
-            #print(state)
             
             new_ratings = dict()
             review_counts = dict()
             restaurants = self.listOfChains()
-            #print(restaurants)
             printed_ratings = dict()
             for key in data.keys():
                 new_ratings[key] = []
                 review_counts[key] = []
                 printed_ratings[key] = []
                 
-                #answer = []
                 for i in range(len(data[key][0])):
                     current = data[key][0][i]
                     one = current['rating']
                     two = current['review_count']
                     three = current['name']
                     four = current['location']['state_code']
-                    #print(four)
                     number = (one * two)
                     if((key == three) and (two > 1)):
                         review_counts[key].append((two))
                         new_ratings[key].append((number))
                 if(len(review_counts[key]) != 0):
-                    #print(key)
                     if((key in restaurants) and (state == four)): 
                         number_of_restaurants = len(data[key][0])
                         number_of_restaurants= number_of_restaurants/1000
@@ -208,11 +250,6 @@ class GetYelp(object):
                     answer = 0
                     printed_ratings[key].append((answer))
                
-                    #new_ratings[key].append((current['rating'], current["review_count"]))
-                    #print("HEERERLE", new_ratings[key])
-
-            #return new_ratings
-            #return printed_ratings
             sorted_dict = sorted(printed_ratings.items(), key=operator.itemgetter(1), reverse = True)[:50]
             return sorted_dict
         
@@ -222,7 +259,6 @@ class GetYelp(object):
         print(allFiles)
         final = dict()
         for key in range(len(allFiles)):
-            #print(allFiles[key])
             city = self.topRatings(allFiles[key])
             final[allFiles[key]] = city
         return final
@@ -233,7 +269,6 @@ if __name__ == "__main__":
     else:
         getYelp = GetYelp()
         location, restaurant = sys.argv[1], sys.argv[2].replace(' ', '-')
-#        rList = get_restaurantList(location, restaurant)
         rList = []
         city = sys.argv[1].split(",")[0].strip()
         total = getYelp.get_restaurantList(location, restaurant)
@@ -242,15 +277,4 @@ if __name__ == "__main__":
                 rList.append(restaurant)
         if (len(rList)==0):
             rList=total
-#        total = None
         print("List of restaurant dictionaries saved into var rList")
-#    Yelp_Restaurants = dict()
-#    for r in results["businesses"]:
-#        Yelp_Restaurants[r["name"]] = r
-#    Yelp_Restaurants = results["businesses"]
-    # Yelp_Restaurants keys = {rating, rating_img_url, is_claimed,
-    # review_count, url, rating_img_url_large, display_phone,
-    # image_url, location, is_closed, categories, phone, name, url}
-    # Keys are all in string
-    
-#    print(get_results(param))
